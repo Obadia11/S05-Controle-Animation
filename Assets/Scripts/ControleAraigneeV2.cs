@@ -27,6 +27,18 @@ public class ControleAraigneeV2 : MonoBehaviour
         _animator.SetFloat("Deplacement", directionInput.magnitude);
     }
 
+    void OnAttaquer()
+    {
+        Debug.Log("Moment d'Attaquer");
+        _animator.SetBool("Attaquer", true);
+        Invoke("TerminerAttaquer", 0.2f);
+    }
+
+    void TerminerAttaquer()
+    {
+        _animator.SetBool("Attaquer", false);
+    }
+
     void FixedUpdate()
     {
         // calculer et appliquer la translation
